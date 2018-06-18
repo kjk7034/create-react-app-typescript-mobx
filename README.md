@@ -1,6 +1,5 @@
-프로젝트를 구성하면서 고민한 내용들과 설정한 과정들에 대해서 간단하게 정리했습니다.
+기존에 작업한 [`create-react-app-typescript`](https://github.com/kjk7034/create-react-app-typescript)에서 redux를 mobx로 교체한 내용.
 
-천천히 읽어보시고 잘못된 내용, 다른 의견, 더 좋은 방법들에 대해서 많은 개발자분들과 대화를 나누고 싶습니다. :)
 
 ## 목차(Table of Contents)
 
@@ -105,15 +104,13 @@ Code Formatter로 [`Prettier`](https://github.com/prettier/prettier)를 적용.
 
 ```
 src
---| actions     // payloads of information that send data from your application to your store
 --| api         // request api
---| components  // components
---| css         // stylesheet
+--| components  // Presentational Components
+--| containers  // Container Components
 --| images      // images
---| pages       // pages based on routes
---| reducers    // application’s state changes in response
---| sagas       // Configuring redux-saga
---| store       // configureStore
+--| router      // pages based on routes
+--| stores      // mobx stores
+--| styles      // stylesheet
 --| utils       // utility functions
 
 ```
