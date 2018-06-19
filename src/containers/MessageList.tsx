@@ -5,7 +5,7 @@ import Page from '../components/Page'
 import { IMessageStore } from '../stores/messageStore'
 
 interface MessageContainerProps {
-  messageStore: IMessageStore
+  messageStore?: IMessageStore
   history: any
 }
 
@@ -13,11 +13,12 @@ interface MessageContainerProps {
 @observer
 class MessageContainer extends React.Component<MessageContainerProps, {}> {
   public componentWillMount() {
+    const store = this.props.messageStore as IMessageStore
     if (
       this.props.history.action === 'PUSH' ||
-      this.props.messageStore.messageList === undefined
+      store.messageList === undefined
     ) {
-      this.props.messageStore.getMessageList()
+      store.getMessageList()
     }
   }
   public render() {

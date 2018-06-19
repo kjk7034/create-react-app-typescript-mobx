@@ -5,14 +5,15 @@ import Page from '../components/Page'
 import { IUserStore } from '../stores/userStore'
 
 interface HomeContainerProps {
-  userStore: IUserStore
+  userStore?: IUserStore
 }
 
 @inject('userStore')
 @observer
 class HomeContainer extends React.Component<HomeContainerProps, {}> {
   public render() {
-    const userInfo = this.props.userStore.getUser()
+    const store = this.props.userStore as IUserStore
+    const { userInfo } = store
     return (
       <Page title={'Home'}>
         <Home userInfo={userInfo} />

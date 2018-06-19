@@ -5,7 +5,7 @@ import MessageView from '../components/View'
 import { IMessageStore } from '../stores/messageStore'
 
 interface MessageContainerProps {
-  messageStore: IMessageStore
+  messageStore?: IMessageStore
   match: any
   history: any
 }
@@ -14,9 +14,8 @@ interface MessageContainerProps {
 @observer
 class MessageContainer extends React.Component<MessageContainerProps, {}> {
   public componentWillMount() {
-    this.props.messageStore.getMessageView(
-      Number(this.props.match.params.viewId)
-    )
+    const store = this.props.messageStore as IMessageStore
+    store.getMessageView(Number(this.props.match.params.viewId))
   }
   public render() {
     const store = this.props.messageStore as IMessageStore

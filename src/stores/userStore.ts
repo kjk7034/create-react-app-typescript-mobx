@@ -1,4 +1,4 @@
-import { action, observable } from 'mobx'
+import { computed, observable } from 'mobx'
 
 export type IUser = {
   name: string
@@ -6,10 +6,10 @@ export type IUser = {
 }
 
 export type IUserStore = {
-  getUser(): IUser
+  userInfo: IUser
 }
 
-class UserStore {
+export class UserStore {
   @observable private name: string
   @observable private age: number
 
@@ -17,8 +17,8 @@ class UserStore {
     this.name = name
     this.age = age
   }
-  @action
-  public getUser(): IUser {
+  @computed
+  public get userInfo(): IUser {
     return {
       name: this.name,
       age: this.age

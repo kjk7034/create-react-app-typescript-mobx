@@ -28,9 +28,6 @@ class MessageStore {
   public async getMessageList() {
     this.messageList = undefined
     this.isLoading = true
-    // runInAction(() => {
-    //   this.isLoading = true
-    // })
     try {
       const messages = await getMessage()
       runInAction(() => {
