@@ -1,6 +1,5 @@
 import { observer } from 'mobx-react'
 import * as React from 'react'
-import { Helmet } from 'react-helmet'
 import { Link } from 'react-router-dom'
 import { IMessage } from '../stores/messageStore'
 
@@ -17,9 +16,6 @@ export class List extends React.Component<ListProps, {}> {
     }
     return (
       <div className="">
-        <Helmet>
-          <title>List Title11</title>
-        </Helmet>
         <ul>
           {datas.map((v, i) => {
             return (

@@ -19,9 +19,11 @@ class MessageContainer extends React.Component<MessageContainerProps, {}> {
     )
   }
   public render() {
-    const { messageDetail, isLoading } = this.props.messageStore
+    const store = this.props.messageStore as IMessageStore
+    const { messageDetail, isLoading } = store
+    const title = messageDetail ? messageDetail.title : undefined
     return (
-      <Page isLoading={isLoading}>
+      <Page isLoading={isLoading} title={title}>
         <MessageView data={messageDetail} goBack={this.props.history.goBack} />
       </Page>
     )

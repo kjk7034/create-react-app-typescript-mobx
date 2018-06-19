@@ -27,9 +27,10 @@ class MessageStore {
   @action
   public async getMessageList() {
     this.messageList = undefined
-    runInAction(() => {
-      this.isLoading = true
-    })
+    this.isLoading = true
+    // runInAction(() => {
+    //   this.isLoading = true
+    // })
     try {
       const messages = await getMessage()
       runInAction(() => {
@@ -46,9 +47,7 @@ class MessageStore {
   @action
   public async getMessageView(id: number) {
     this.messageDetail = undefined
-    runInAction(() => {
-      this.isLoading = true
-    })
+    this.isLoading = true
     try {
       const messages = await getMessage(id)
       runInAction(() => {

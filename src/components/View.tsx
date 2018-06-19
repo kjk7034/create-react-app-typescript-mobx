@@ -1,6 +1,5 @@
 import { observer } from 'mobx-react'
 import * as React from 'react'
-import { Helmet } from 'react-helmet'
 import { IMessage } from '../stores/messageStore'
 
 interface ViewProps {
@@ -20,9 +19,6 @@ export class View extends React.Component<ViewProps, {}> {
     }
     return (
       <div className="">
-        <Helmet>
-          <title>View Title11</title>
-        </Helmet>
         <h1>제목 : {data.title}</h1>
         <button type="button" onClick={this.props.goBack}>
           이전

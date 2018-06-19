@@ -1,6 +1,5 @@
 import { observer } from 'mobx-react'
 import * as React from 'react'
-import { Helmet } from 'react-helmet'
 import { IUser } from '../stores/userStore'
 
 interface HomeProps {
@@ -14,9 +13,6 @@ export class Home extends React.Component<HomeProps, {}> {
 
     return (
       <div className={'App-container'}>
-        <Helmet>
-          <title>Home Title11</title>
-        </Helmet>
         <section>
           <h1>홈!!</h1>
           <p>이름 : {name}</p>
