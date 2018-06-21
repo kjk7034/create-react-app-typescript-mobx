@@ -1,8 +1,9 @@
 import * as React from 'react'
 import { Helmet } from 'react-helmet'
 import ActivityIndicator from './ActivityIndicator'
+import Error from './Error'
 
-const Page = (props: any): JSX.Element => {
+function page(props: any) {
   return (
     <div className="App-container">
       {props.title && (
@@ -12,8 +13,9 @@ const Page = (props: any): JSX.Element => {
       )}
       {props.children}
       {props.isLoading && <ActivityIndicator />}
+      {props.error && <Error error={props.error} />}
     </div>
   )
 }
 
-export default Page
+export default page

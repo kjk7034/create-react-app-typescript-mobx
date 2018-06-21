@@ -7,28 +7,26 @@ interface ListProps {
   datas: IMessage[]
 }
 
-@observer
-export class List extends React.Component<ListProps, {}> {
-  public render() {
-    const datas = this.props.datas
-    if (!datas) {
-      return null
-    }
-    return (
-      <div className="">
-        <ul>
-          {datas.map((v, i) => {
-            return (
-              <li key={i}>
-                <Link to={`/message/${v.id}`}>
-                  {v.id} {v.title}
-                </Link>
-              </li>
-            )
-          })}
-        </ul>
-      </div>
-    )
+function list(props: ListProps) {
+  const datas = props.datas
+  if (!datas) {
+    return null
   }
+  return (
+    <div className="">
+      <ul>
+        {datas.map((v, i) => {
+          return (
+            <li key={i}>
+              <Link to={`/message/${v.id}`}>
+                {v.id} {v.title}
+              </Link>
+            </li>
+          )
+        })}
+      </ul>
+    </div>
+  )
 }
-export default List
+
+export default observer(list)
