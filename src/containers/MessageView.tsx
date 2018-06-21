@@ -15,14 +15,14 @@ interface MessageContainerProps {
 class MessageContainer extends React.Component<MessageContainerProps, {}> {
   public componentWillMount() {
     const store = this.props.messageStore as IMessageStore
-    store.getMessageView(Number(this.props.match.params.viewId))
+    store.loadMessage(Number(this.props.match.params.viewId))
   }
   public render() {
     const store = this.props.messageStore as IMessageStore
-    const { messageDetail, isLoading } = store
+    const { messageDetail, isLoading, error } = store
     const title = messageDetail ? messageDetail.title : undefined
     return (
-      <Page isLoading={isLoading} title={title}>
+      <Page title={title} error={error} isLoading={isLoading}>
         <MessageView data={messageDetail} goBack={this.props.history.goBack} />
       </Page>
     )
